@@ -1,0 +1,23 @@
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'EventFlyer'
+
+    publishedGroupId = 'com.yunlinos.eventflyer'
+    libraryName = 'EventFlyer'
+    artifact = 'EventFlyer'
+
+    libraryDescription = 'EventFlyer is a IPC library for Android, it works just as well as EventBus.'
+
+    siteUrl = 'https://github.com/yunlinos/EventFlyer'
+    gitUrl = 'https://github.com/yunlinos/EventFlyer.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'yunlinos'
+    developerName = 'yunlinos'
+    developerEmail = 'yunlinyeos@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}

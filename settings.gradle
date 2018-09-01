@@ -1,0 +1,2 @@
+include ':eventflyer', ':eventmodel'
+include ':sample:EventFlyerServer', ':sample:EventClientA', ':sample:EventClientB'
