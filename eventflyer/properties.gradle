@@ -1,5 +1,5 @@
 ext {
-    bintrayRepo = 'maven'
+    bintrayRepo = 'EventFlyer'
     bintrayName = 'EventFlyer'
 
     publishedGroupId = 'com.yunlinos.eventflyer'
