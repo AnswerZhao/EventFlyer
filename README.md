@@ -27,20 +27,32 @@ dependencies {
 ## Getting Started
 1. Initialize the service responsible for forwarding messages, and the service should survive as long as possible.
 ```java
-		public class RemoteServer extends FlyerService {/* Do something */}
+public class RemoteServer extends FlyerService {/* Do something */}
 ```
 
 2. Define event as `eventmodel`:
 ```java
-		public class OnControlEvent {/* Do something */}
+public class OnControlEvent {/* Do something */}
 ```
 
-3. In one App, prepare subscribers: Declare and annotate your subscribing method:
+3. In one App, init Application:
 ```java
-    @RemoteSubscribe(threadMode = ThreadMode.MAIN)
-		public void onEventGet(OnControlEvent onControlEvent) {/* Do something */}
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        EventFlyer.getDefault().init(new FlyerConfiguration.Builder()
+                .applicationContext(this)
+                .remoteServicePkgName("com.yunlinos.eventflyerserver")
+                .remoteServiceClassName("com.yunlinos.eventflyerserver.RemoteServer")
+                .build());
+    }
 ```
-bind、unbind、Register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
+  prepare subscribers: Declare and annotate your subscribing method:
+```java
+@RemoteSubscribe(threadMode = ThreadMode.MAIN)
+public void onEventGet(OnControlEvent onControlEvent) {/* Do something */}
+```
+  Bind、unbind、register and unregister your subscriber. For example on Android, activities and fragments should usually register according to their life cycle:
 ```java
     @Override
     public void onCreate() {
@@ -58,7 +70,19 @@ bind、unbind、Register and unregister your subscriber. For example on Android,
     }
 ```
 
-4. In other App, post events:
+4. In other App, init application:
+```java
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        EventFlyer.getDefault().init(new FlyerConfiguration.Builder()
+                .applicationContext(this)
+                .remoteServicePkgName("com.yunlinos.eventflyerserver")
+                .remoteServiceClassName("com.yunlinos.eventflyerserver.RemoteServer")
+                .build());
+    }
+```
+  post events:
 ```java
     @Override
     protected void onResume() {
@@ -73,8 +97,6 @@ bind、unbind、Register and unregister your subscriber. For example on Android,
         EventFlyer.getDefault().unBindRemoteServer();
     }
 ```
-
-you can use it as well as EventBus.
 
 ## License
 
