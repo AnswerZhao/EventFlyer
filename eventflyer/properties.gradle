@@ -1,10 +1,10 @@
 ext {
-    bintrayRepo = 'EventFlyer'
-    bintrayName = 'EventFlyer'
+    bintrayRepo = 'library'
+    bintrayName = 'eventflyer'
 
-    publishedGroupId = 'com.yunlinos.eventflyer'
+    publishedGroupId = 'com.yunlinos.library'
     libraryName = 'EventFlyer'
-    artifact = 'EventFlyer'
+    artifact = 'eventflyer'
 
     libraryDescription = 'EventFlyer is a IPC library for Android, it works just as well as EventBus.'
 
